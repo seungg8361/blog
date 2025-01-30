@@ -1,6 +1,3 @@
 spring:
-  application:
-    name:
-      blog
   config:
     import: application-dev.yml
