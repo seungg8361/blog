@@ -1,6 +1,7 @@
 package com.example.blog.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class) // 엔티티의 생성 시간, 수정 시간을 알기위한 애너테이션
 @Entity
 @Getter
-@NoArgsConstructor // 접근 제어자가 protected 인 기본 생성자
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 접근 제어자가 protected 인 기본 생성자
 public class Article {
 
     @Id
