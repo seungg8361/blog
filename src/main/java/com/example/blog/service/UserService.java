@@ -21,4 +21,9 @@ public class UserService {
                 .password(bCryptPasswordEncoder.encode(request.getPassword()))
                 .build()).getId();
     }
+    // 리프레시 토큰을 전달받아 새로운 엑세스 토큰을 만들기 위해 유저 ID로 유저를 검색
+    public User findById(Long userId){
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected user"));
+    }
 }
