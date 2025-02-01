@@ -47,7 +47,7 @@ public class TokenProvider {
                 .compact();
     }
     // 토큰을 검증하는 메서드
-    public boolean validateToken(String token){
+    public boolean validToken(String token){
         try{
             Jwts.parser()
                     .setSigningKey(jwtProperties.getSecretKey())
