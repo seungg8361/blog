@@ -28,10 +28,19 @@ public class User implements UserDetails { // UserDetails 를 상속받아서 �
     @Column(name = "password")
     private String password;
 
+    @Column(name = "nickname", unique = true)
+    private String nickname;
+
     @Builder
-    public User(String email, String password, String auth) {
+    public User(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
+        this.nickname = nickname;
+    }
+
+    public User update(String nickname){
+        this.nickname = nickname;
+        return this;
     }
 
     @Override // 사용자가 가지고 있는 권한의 목록을 반환 => 현재는 사용자 이외의 권한이 없기 때문에 user 권한만 담음
